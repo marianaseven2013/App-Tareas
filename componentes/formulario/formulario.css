@@ -1,0 +1,42 @@
+
+.contenedorf{
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #f3f3f3;
+    padding: 0.75rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(192, 192, 192, 0.1);
+}
+
+.fori {
+    flex: 1;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px solid  #f3f3f3;
+    color: black;
+    border-radius: 8px;
+    outline: none;
+    height: 3.5rem;
+
+}
+
+.botonf{
+    padding: 1rem 1rem;
+    font-size: 1.3rem;
+    color: #fff;
+    height: 3.5rem;
+    background-color: #333;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.botonf:hover {
+    background-color: #555;
+}
