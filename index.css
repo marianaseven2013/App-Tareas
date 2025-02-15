@@ -1,7 +1,24 @@
 body {
-    margin: auto;
-    max-width: 375px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
+
+
+/*Aquí le decimos a la lista y todo el contenedor que en el pc se marque de una forma y en telefono con un 375 px*/
+@media (max-width: 375px) {
+    .listt {
+        width: 100%;
+        max-width: 375px;
+        margin: 0 auto;
+        padding: 0.5rem;
+    }
+
+    .container {
+        max-width: 375px;
+    }
+}
+
 
 
 
