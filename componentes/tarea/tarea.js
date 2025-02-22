@@ -1,4 +1,8 @@
-import { listado } from "../formulario/data.js";
+import { listado } from "./data.js";
+
+
+
+
 
 function item(tareaTexto) {
     let div = document.createElement('div');

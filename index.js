@@ -4,16 +4,15 @@ import { tarea } from "./componentes/tarea/tarea.js";
 
 let DOM = document.querySelector("#root");
 
- 
+function cargarDOM(){
+    DOM.appendChild(header());
+    DOM.appendChild(tarea())
+    DOM.appendChild(formulario())
+}
 
+cargarDOM();
 
- 
-
-
-
-DOM.appendChild(header());
-DOM.appendChild(tarea())
-DOM.appendChild(formulario())
+export {cargarDOM}
 
 
 //DOM.innerText = "Hola mundo"
