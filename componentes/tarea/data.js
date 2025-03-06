@@ -1,3 +1,11 @@
+function consultarTareas(){
+    fetch('http://localhost:3000/tareas')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+}
+
+
 let listado = ["Drink 8 glasses of water",
     "Meditate for 10 minutes",
     "Read a chapter of a book",
