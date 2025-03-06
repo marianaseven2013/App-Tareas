@@ -1,3 +1,5 @@
+import { agregartarea } from "./funcionesformulario.js";
+
 function formulario() {
     let fot = document.createElement('div');
     fot.className = "contenedorf";
@@ -12,6 +14,7 @@ function formulario() {
     let bot = document.createElement('button');
     bot.textContent = "Add";
     bot.className = "botonf";
+    bot.addEventListener('click', ()=> {agregartarea()});
  
  
     fot.appendChild(bag);
