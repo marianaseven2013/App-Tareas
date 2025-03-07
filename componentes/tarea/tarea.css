@@ -4,7 +4,6 @@
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 6px rgba(192, 192, 192, 0.1);
-    margin: 1rem auto;
     font-weight: bold;
 }
 
@@ -31,6 +30,8 @@
     border-radius: 5px;
     margin-bottom: 0.5rem;
     cursor: pointer; 
+    border: 1px solid rgb(151, 151, 151);
+
 }
 
 .chequesi {
