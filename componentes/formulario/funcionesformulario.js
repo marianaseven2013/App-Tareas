@@ -1,4 +1,3 @@
-import { listado } from "../tarea/data.js";
 import { Cargartarea } from "../tarea/tarea.js";
 
 function agregartarea(){

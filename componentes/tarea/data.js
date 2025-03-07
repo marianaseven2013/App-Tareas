@@ -1,12 +1,15 @@
-function consultarTareas(){
+/* function consultarTareas(){
     fetch('http://localhost:3000/tareas')
     .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
-}
+/*     .then(data => console.log(data))
+ */   /*  .catch(error => console.error('Error:', error));
+
+    console.log("-------------sdca")
+    console.log(response);
+} */
 
 
-let listado = ["Drink 8 glasses of water",
+/* let listado = ["Drink 8 glasses of water",
     "Meditate for 10 minutes",
     "Read a chapter of a book",
     "Go for a 30-minute walk",
@@ -14,6 +17,6 @@ let listado = ["Drink 8 glasses of water",
     "Plan meals for the day",
     "Practice deep breathingexercises",
     "Stretch for 15 minutes",
-"Practice deep breathingexercises"]
+"Practice deep breathingexercises"] */
 
-    export {listado}
+/*     export {/* listado, *//*  consultarTareas} */
