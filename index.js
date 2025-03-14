@@ -1,32 +1,28 @@
 import { header } from "./componentes/header/header.js";
 import { consultarTareasbackEnd } from "./componentes/tarea/tarea.js";
-/* import { rendeTareas } from "./componentes/tarea/tarea.js";
- */
-import { formulario } from "./componentes/formulario/formulario.js";
+import { dd } from "./forms/Login/login.js";
+import { Inf } from "./forms/registro/registro.js"; 
+
 let DOM = document.querySelector("#root");
 
-function cargarDOM(){
+function cargarDOM() {
+   DOM.innerHTML = ""; 
    DOM.appendChild(header());
-/*    /* let seccionTa = document.createElement('div'); */
-  consultarTareasbackEnd();
-  /*  seccionTa.id = 'secciontt';
-   seccionTa.appendChild((rendeTareas));
-   DOM.appendChild(seccionTa); */
+   consultarTareasbackEnd();
    DOM.appendChild(formulario());
 }
 
+function cargarDD() {
+   const ppadElement = dd();
+   DOM.innerHTML = ""; 
+   DOM.appendChild(ppadElement);
+}
 
-cargarDOM();
+function cargarInf() {
+   const infElement = Inf();
+   DOM.innerHTML = ""; 
+   DOM.appendChild(infElement);
+}
 
-/* export {cargarDOM} */
-
-
-
-
-//DOM.innerText = "Hola mundo"
-
-
-
-
-
-
+// Mostrar formulario de login inicialmente
+cargarDD();
