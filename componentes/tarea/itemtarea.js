@@ -13,15 +13,13 @@ function item(tarea) {
   checkbox.className = "chequesi";
   checkbox.addEventListener('change', marcarTexto);
 
-  // Texto de la tarea
+
   let texto = document.createElement('label');
   texto.textContent = tarea;
 
-  // Agregar el checkbox y el texto al div
   div.appendChild(checkbox);
   div.appendChild(texto);
 
-  // Agregar el div al contenedor de la tarea
   cadatarea.appendChild(div);
 
   return cadatarea;

@@ -72,12 +72,12 @@ function Inf() {
         }
     });
 
-    // Evento para el botón "Regresar al Login"
+    //Función para regresar al Login
     bttnR.addEventListener('click', () => {
         const DOM = document.querySelector("#root");
         if (DOM) {
-            // Importar dinámicamente el módulo de login
-            import("../Login/login.js") // <-- Ruta corregida
+
+            import("../Login/login.js") 
                 .then(module => {
                     const { dd } = module;
                     DOM.innerHTML = ""; // Limpiar el contenido actual

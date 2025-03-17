@@ -12,29 +12,25 @@ cargarDD();
 function cargarDOM() {
     DOM.innerHTML = ""; // Limpiar el DOM
 
-    // Agregar el header
     DOM.appendChild(header());
 
-    // Crear un contenedor para las tareas
     let seccionTareas = document.createElement('div');
     seccionTareas.id = "seccion-tareas";
     DOM.appendChild(seccionTareas);
 
-    // Cargar las tareas
     consultarTareasbackEnd();
 
-    // Agregar el formulario de tareas
     DOM.appendChild(formulario());
 }
 function cargarDD() {
     const ppadElement = dd();
-    DOM.innerHTML = ""; // Limpiar el DOM
+    DOM.innerHTML = ""; 
     DOM.appendChild(ppadElement);
 }
 
 function cargarInf() {
     const infElement = Inf();
-    DOM.innerHTML = ""; // Limpiar el DOM
+    DOM.innerHTML = ""; 
     DOM.appendChild(infElement);
 }
 

@@ -85,16 +85,15 @@ function dd() {
         });
     });
 
-    // Evento para redirigir al registro
+    //Nos regresa al Login
     butt.addEventListener('click', () => {
         const DOM = document.querySelector("#root");
         if (DOM) {
-            // Importar dinámicamente el módulo de registro
             import("../registro/registro.js") // <-- Ruta corregida
                 .then(module => {
                     const { Inf } = module;
-                    DOM.innerHTML = ""; // Limpiar el contenido actual
-                    DOM.appendChild(Inf()); // Mostrar el formulario de registro
+                    DOM.innerHTML = ""; 
+                    DOM.appendChild(Inf()); //Mostrar Formulario de Rgistro
                 })
                 .catch(error => {
                     console.error("Error al cargar el módulo de registro:", error);

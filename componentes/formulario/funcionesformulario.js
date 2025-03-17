@@ -27,19 +27,19 @@ function agregartarea() {
       })
   })
   .then(response => {
-      console.log("Respuesta del servidor:", response); // Depuración
+      console.log("Respuesta del servidor:", response); 
       if (!response.ok) {
           throw new Error('Error en la solicitud');
       }
       return response.json();
   })
   .then(data => {
-      console.log('Tarea agregada con éxito:', data); // Depuración
+      console.log('Tarea agregada con éxito:', data); 
       document.querySelector(".fori").value = "";
       consultarTareasbackEnd();
   })
   .catch(error => {
-      console.error('Hubo un problema con la solicitud:', error); // Depuración
+      console.error('Hubo un problema con la solicitud:', error); 
       alert("Error al agregar la tarea");
   });
 }

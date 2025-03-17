@@ -1,8 +1,6 @@
   import { item } from "./itemtarea.js";
 
-  // Función para consultar tareas desde el backend
   function consultarTareasbackEnd() {
-    // Obtener el usuario_id del localStorage
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     if (!usuario || !usuario.id) {
         console.error("Usuario no identificado. Por favor, inicia sesión nuevamente.");
@@ -27,10 +25,8 @@ function cargarT(data) {
       return;
   }
 
-  // Limpiar el contenedor de tareas
   seccionTareas.innerHTML = "";
 
-  // Renderizar las tareas
   seccionTareas.appendChild(rendeTareas(data));
 }
 
@@ -38,12 +34,10 @@ function cargarT(data) {
     let div = document.createElement('div');
     div.className = "listt";
 
-    // Crear el título "Personal"
     let titulo = document.createElement('h1');
     titulo.textContent = "Personal";
     div.appendChild(titulo);
 
-    // Renderizar cada tarea
     data.forEach((element) => {
         div.appendChild(item(element.nombre_tarea));
     });
@@ -80,5 +74,4 @@ function cargarT(data) {
     });
 }
 
-  // Exportar funciones
   export { consultarTareasbackEnd, agregarTarea, rendeTareas};
