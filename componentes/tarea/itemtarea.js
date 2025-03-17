@@ -2,30 +2,29 @@ import { marcarTexto } from "./funcionestarea.js";
 
 function item(tarea) {
   let cadatarea = document.createElement('div');
-    let div = document.createElement('div');
-        div.className = "trdiv";
+  cadatarea.className = "tarea-item";
 
-        div.addEventListener('click', marcarTexto);
+  let div = document.createElement('div');
+  div.className = "trdiv";
 
-        let checkbox = document.createElement('input');
-        checkbox.type = "checkbox";
-        checkbox.className = "chequesi";
-        div.appendChild(checkbox);  
+  // Checkbox para marcar la tarea como completada
+  let checkbox = document.createElement('input');
+  checkbox.type = "checkbox";
+  checkbox.className = "chequesi";
+  checkbox.addEventListener('change', marcarTexto);
 
-        let texto = document.createElement('label'); 
-        texto.textContent = tarea;
-/*         div.appendChild(tareaTexto);
- */        div.appendChild(texto);
+  // Texto de la tarea
+  let texto = document.createElement('label');
+  texto.textContent = tarea;
 
-        cadatarea.appendChild(div);
+  // Agregar el checkbox y el texto al div
+  div.appendChild(checkbox);
+  div.appendChild(texto);
 
+  // Agregar el div al contenedor de la tarea
+  cadatarea.appendChild(div);
 
-
-    //Esto es para agregar la función de que cuando se apache el cuadro de texto cambie o se marque
-/*     div.addEventListener('click', marcarTexto);
- */
-
-    return cadatarea;
+  return cadatarea;
 }
 
-export {item}
+export { item };

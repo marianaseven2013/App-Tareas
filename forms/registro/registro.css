@@ -66,10 +66,29 @@
     border: 3px solid white;
     font-size: 1.2rem;
     cursor: pointer;
+    width: 9rem;
   }
   
   .register-button:hover {
-    background: white;
-    color: black;
+    background: rgba(105, 143, 135, 0.2);
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+  }
+
+  .regBT{
+    grid-row: 8/9;
+    height: 4rem;
+    background: rgba(105, 143, 135, 0.2);
+    border-radius: 1rem;
+    color: white;
+    border: 3px solid white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 12rem;
+  }
+
+  .regBT:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: rgb(255, 255, 255);
     transition: 0.3s;
   }

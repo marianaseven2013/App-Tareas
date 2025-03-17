@@ -1,6 +1,7 @@
 import { consultarTareasbackEnd } from "../../componentes/tarea/tarea.js";
 import { header } from "../../componentes/header/header.js";
 import { formulario } from "../../componentes/formulario/formulario.js";
+import { cargarDOM } from "../../index.js"; // Importar cargarDOM desde index.js
 
 function dd() {
     let ppad = document.createElement('div');
@@ -49,36 +50,55 @@ function dd() {
     let bv = document.createElement('div');
     bv.className = "tt";  
     bv.innerText = "Regístrate e Ingresa";
-
-    // Evento para validar credenciales y redirigir
+    
     ing.addEventListener('click', () => {
         const email = cuemail.value.trim();
         const password = cucont.value.trim();
-
-        if (email === "admin" && password === "1234") {
-            const DOM = document.querySelector("#root");
-            if (DOM) {
-                DOM.innerHTML = ""; // Limpiar contenido del DOM
-                DOM.appendChild(header());
-                consultarTareasbackEnd(); // Cargar las tareas
-                DOM.appendChild(formulario()); // Agregar el formulario
+    
+        fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ correo: email, contraseña: password }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.mensaje === 'Login exitoso') {
+                // Guardar el usuario en localStorage
+                localStorage.setItem('usuario', JSON.stringify(data.usuario));
+            
+                const DOM = document.querySelector("#root");
+                if (DOM) {
+                    DOM.innerHTML = ""; // Limpiar contenido del DOM
+                    cargarDOM(); // Llamar a cargarDOM para crear el contenedor y cargar las tareas
+                } else {
+                    console.error("No se encontró el elemento #root");
+                }
             } else {
-                console.error("No se encontró el elemento #root");
+                alert("Correo o contraseña incorrectos");
             }
-        } else {
-            alert("Correo o contraseña incorrectos");
-        }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Error al realizar el login");
+        });
     });
 
     // Evento para redirigir al registro
     butt.addEventListener('click', () => {
         const DOM = document.querySelector("#root");
         if (DOM) {
-            import("../../forms/registro/registro.js").then(module => {
-                const { Inf } = module;
-                DOM.innerHTML = "";
-                DOM.appendChild(Inf());
-            });
+            // Importar dinámicamente el módulo de registro
+            import("../registro/registro.js") // <-- Ruta corregida
+                .then(module => {
+                    const { Inf } = module;
+                    DOM.innerHTML = ""; // Limpiar el contenido actual
+                    DOM.appendChild(Inf()); // Mostrar el formulario de registro
+                })
+                .catch(error => {
+                    console.error("Error al cargar el módulo de registro:", error);
+                });
         }
     });
 

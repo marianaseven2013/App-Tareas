@@ -1,41 +1,46 @@
 import { consultarTareasbackEnd } from "../tarea/tarea.js";
 
-function agregartarea(){
-   
-    //En esta variable va a almacenar aquel elemento cuya clase se llama entradaformulaio, esto va a recuperar su contenido, ya sea texto etc.
-   let tareaForm = document.querySelector(".fori").value; 
+function agregartarea() {
+  let tareaForm = document.querySelector(".fori").value;
 
+  if (!tareaForm.trim()) {
+      alert("Por favor, ingresa una tarea.");
+      return;
+  }
 
-   fetch('http://localhost:3000/agregar', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      nombre_tarea: tareaForm,
-      estado: 'pendiente'
-    })
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  if (!usuario || !usuario.id) {
+      alert("Usuario no identificado. Por favor, inicia sesión nuevamente.");
+      return;
+  }
+
+  console.log("Enviando tarea:", { nombre_tarea: tareaForm, usuario_id: usuario.id }); // Depuración
+
+  fetch('http://localhost:3000/tareas', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          nombre_tarea: tareaForm,
+          usuario_id: usuario.id
+      })
   })
   .then(response => {
-    if (!response.ok) {
-      throw new Error('Error al guardar la tarea');
-    }
-    return response.json();
+      console.log("Respuesta del servidor:", response); // Depuración
+      if (!response.ok) {
+          throw new Error('Error en la solicitud');
+      }
+      return response.json();
   })
   .then(data => {
-    console.log('Tarea agregada con éxito:', data);
+      console.log('Tarea agregada con éxito:', data); // Depuración
+      document.querySelector(".fori").value = "";
+      consultarTareasbackEnd();
   })
   .catch(error => {
-    console.error('Hubo un problema con la solicitud:', error);
+      console.error('Hubo un problema con la solicitud:', error); // Depuración
+      alert("Error al agregar la tarea");
   });
-
-   
-/*    let prueba = document.querySelector("#secciontt");
-   prueba.innerHTML = '';//Limpia y agrega lo nuevo.
-   prueba.appendChild(consultarTareasbackEnd()); */
-
-   document.querySelector("#root").innerHTML = "";
-
 }
-
-export {agregartarea}
+export { agregartarea };

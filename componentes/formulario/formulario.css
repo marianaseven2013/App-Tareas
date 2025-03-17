@@ -39,3 +39,17 @@
  .botonf:hover {
     background-color: #555;
 }
+
+.botonR{
+    padding: 1rem 1rem;
+    font-size: 1.3rem;
+    color: #fff;
+    height: 5rem;
+    background-color: #333;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 10rem;
+}
