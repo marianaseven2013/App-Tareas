@@ -52,8 +52,17 @@
     color: #888;
 }
 
-.trdiv.marcacch {
-    /*Esto es para ponerle difuminado al cuadro*/
+
+.marca {
+    text-decoration: line-through;
+    color: #888;
     background: linear-gradient(135deg, #ccd6d3, #b7ecf3, #9dc2f1);
+
+}
+
+.marcacch {
+    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #ccd6d3, #b7ecf3, #9dc2f1);
+
 }
 
